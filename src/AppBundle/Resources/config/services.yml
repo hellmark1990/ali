@@ -1,0 +1,4 @@
+services:
+    app.ali_finder:
+        class: AppBundle\Services\AliFinder
+        arguments: [@service_container]

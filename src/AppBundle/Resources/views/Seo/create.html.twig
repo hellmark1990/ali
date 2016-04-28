@@ -1,0 +1,64 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+
+{% block inner_body %}
+
+    <div class="row">
+        <h2>Add new seo item</h2>
+
+        <div class="col-lg-4">
+            {{ form_errors(form) }}
+
+            <form action="{{ path("seo_create_item") }}" method="post">
+
+                <div class="form-group">
+                    {{ form_label(form.route_id) }}
+                    {{ form_widget(form.route_id, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.route_id) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.route_name) }}
+                    {{ form_widget(form.route_name, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.route_name) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.title) }}
+                    {{ form_widget(form.title, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.title) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.description) }}
+                    {{ form_widget(form.description, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.description) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.keywords) }}
+                    {{ form_widget(form.keywords, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.keywords) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.author) }}
+                    {{ form_widget(form.author, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.author) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.active) }}
+                    {{ form_widget(form.active, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.active) }}
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-success"/>
+                    Save</button>
+                </div>
+                {{ form_rest(form) }}
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

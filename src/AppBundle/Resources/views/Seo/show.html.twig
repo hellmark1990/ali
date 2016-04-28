@@ -1,0 +1,49 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+
+{% block inner_body %}
+    <div class="row">
+        <h2>Seo items</h2>
+        <div>
+            <a href="{{ path('seo_create_item') }}" class="btn btn-success"/>
+            Create</a>
+        </div>
+
+        <div class="col-md-12">
+
+            <table class="table">
+                <tr>
+                    <th>#</th>
+                    <th>Route ID</th>
+                    <th>Page Name(info)</th>
+                    <th>Title</th>
+                    <th>Activity</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                {% for seo_item in seo_items %}
+                    <tr>
+                        <td>{{ seo_item.id }}</td>
+                        <td>{{ seo_item.routeId }}</td>
+                        <td>{{ seo_item.routeName }}</td>
+                        <td>{{ seo_item.title }}</td>
+                        <td>
+                            {% if seo_item.active %}
+                                Enabled
+                            {% else %}
+                                Disabled
+                            {% endif %}
+                        </td>
+                        <td><a href="{{ path('seo_edit_item', {'id' : seo_item.id }) }}">Edit</a></td>
+                        <td><a href="{{ path('seo_delete_item', {'id' : seo_item.id }) }}">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block js_additional %}
+    <script type="text/javascript" src="{{ asset('js/admin.js') }}"></script>
+{% endblock %}
+
